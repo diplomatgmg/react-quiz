@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { type ReactElement } from 'react'
+import Game from './components/Game'
+import './style.scss'
+import Result from './components/Result'
 
-const App = (): React.ReactElement => {
+const App = (): ReactElement => {
   return (
-    <div>
-      App component 1
+    <div className="App">
+      <Game/>
+      <Result/>
     </div>
   )
 }

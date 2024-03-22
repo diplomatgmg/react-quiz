@@ -58,10 +58,11 @@ const App = (): ReactElement => {
   const progressStatus = (correctAnswers / QUESTIONS.length) * 100
 
   const hasNextQuestion = currentQuestionIndex < QUESTIONS.length
+  const currentQuestion = hasNextQuestion ? currentQuestionIndex + 1 : currentQuestionIndex
 
   return (
     <AppContainer>
-      <ProgressBar status={progressStatus}></ProgressBar>
+      <ProgressBar status={progressStatus} current={currentQuestion} all={QUESTIONS.length}></ProgressBar>
       {hasNextQuestion ? <Game/> : <Result />}
     </AppContainer>
   )

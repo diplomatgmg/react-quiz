@@ -3,14 +3,29 @@ import styled from 'styled-components'
 
 interface ProgressBarProps {
   status: number
+  current: number
+  all: number
 }
 
 const ProgressContainer = styled.div`
-    height: 10px;
-    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    margin-right: 8px;
 
+`
+const ProgressBarMain = styled.div`
+    width: 100%;
+    height: 10px;
     border-radius: 30px;
     background-color: rgb(232, 232, 232);
+`
+
+const ProgressText = styled.span`
+    font-size: 14px;
+    color: #666;
+    padding: 0 8px;
 `
 
 const ProgressInner = styled.div<{ status: number }>`
@@ -24,10 +39,13 @@ const ProgressInner = styled.div<{ status: number }>`
     background: linear-gradient(90deg, rgba(18, 231, 48, 1) 0%, rgba(0, 212, 255, 1) 100%);
 `
 
-const ProgressBar: FC<ProgressBarProps> = ({ status }): ReactElement => {
+const ProgressBar: FC<ProgressBarProps> = ({ status, current, all }): ReactElement => {
   return (
     <ProgressContainer>
-      <ProgressInner status={status}></ProgressInner>
+      <ProgressText>{current}/{all}</ProgressText>
+      <ProgressBarMain>
+        <ProgressInner status={status}/>
+      </ProgressBarMain>
     </ProgressContainer>
   )
 }

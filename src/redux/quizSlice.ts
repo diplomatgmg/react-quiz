@@ -17,5 +17,11 @@ const quizSlice = createSlice({
   reducers
 })
 
+export const {
+  addCorrectAnswer,
+  updateCurrentQuestionIndex,
+  resetQuiz
+} = quizSlice.actions
+
 export default quizSlice.reducer
 export { type QuizState }

@@ -6,5 +6,9 @@ export default {
   },
   updateCurrentQuestionIndex (state: QuizState) {
     state.currentQuestionIndex += 1
+  },
+  resetQuiz (state: QuizState) {
+    state.correctAnswers = 0
+    state.currentQuestionIndex = 0
   }
 }

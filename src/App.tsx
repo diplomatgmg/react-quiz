@@ -8,7 +8,7 @@ import { QUESTIONS } from './constants'
 const App = (): ReactElement => {
   const currentQuestionIndex = useAppSelector((state) => state.quiz.currentQuestionIndex)
 
-  const isQuizCompleted = currentQuestionIndex === QUESTIONS.length - 1
+  const isQuizCompleted = currentQuestionIndex === QUESTIONS.length
 
   return (
     <div className="App">

@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 const GameContainer = styled.div`
     h1 {
-        margin: 0;
+        margin: 0 0 24px 0;
     }
 
     ul {

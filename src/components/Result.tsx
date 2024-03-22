@@ -9,10 +9,11 @@ const ResultContainer = styled.div`
     text-align: center;
 
     h2 {
-        margin-bottom: 0;
+        margin: 12px 0;
     }
 
     img {
+        margin: 0 0 24px 0;
         width: 150px;
     }
 `

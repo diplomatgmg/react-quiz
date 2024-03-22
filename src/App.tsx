@@ -2,7 +2,7 @@ import React, { type ReactElement } from 'react'
 import Game from './components/Game'
 import './style.scss'
 import Result from './components/Result'
-import { useAppDispatch, useAppSelector } from './redux/hooks'
+import { useAppSelector } from './redux/hooks'
 import { QUESTIONS } from './constants'
 import styled from 'styled-components'
 import ProgressBar from './components/ProgressBar'
@@ -13,7 +13,7 @@ const AppContainer = styled.div`
     width: 500px;
     padding: 40px;
 
-    border-radius: 30px;
+    border-radius: 30px;  
     background-color: #fff;
 
     &:before,

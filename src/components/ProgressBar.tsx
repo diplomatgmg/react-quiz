@@ -28,8 +28,8 @@ const ProgressText = styled.span`
     padding: 0 8px;
 `
 
-const ProgressInner = styled.div<{ status: number }>`
-    width: ${({ status }) => status}%;
+const ProgressInner = styled.div<{ $status: number }>`
+    width: ${({ $status }) => $status}%;
     height: 100%;
 
     transition: all .3s ease-in-out;
@@ -44,7 +44,7 @@ const ProgressBar: FC<ProgressBarProps> = ({ status, current, all }): ReactEleme
     <ProgressContainer>
       <ProgressText>{current}/{all}</ProgressText>
       <ProgressBarMain>
-        <ProgressInner status={status}/>
+        <ProgressInner $status={status}/>
       </ProgressBarMain>
     </ProgressContainer>
   )

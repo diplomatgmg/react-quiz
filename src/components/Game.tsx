@@ -1,19 +1,45 @@
 import React, { type ReactElement } from 'react'
-import { useAppSelector } from '../redux/hooks'
+import QuestionItem from './QuestionItem'
 import { QUESTIONS } from '../constants'
-import ProgressBar from './ProgressBar'
-import QuizContent from './QuizContent'
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
+import { addCorrectAnswer, updateCurrentQuestionIndex } from '../redux/quizSlice'
+import styled from 'styled-components'
+
+const GameContainer = styled.div`
+    h1 {
+        margin: 0;
+    }
+
+    ul {
+        padding: 0;
+
+        list-style: none;
+    }
+`
 
 const Game = (): ReactElement => {
-  const correctAnswers = useAppSelector((state) => state.quiz.correctAnswers)
+  const currentQuestionIndex = useAppSelector((state) => state.quiz.currentQuestionIndex)
 
-  const progressStatus = (correctAnswers / QUESTIONS.length) * 100
+  const dispatch = useAppDispatch()
+
+  const { title, variants, correct } = QUESTIONS[currentQuestionIndex]
+
+  const handleSelectAnswer = (selectedAnswer: number): void => {
+    if (selectedAnswer === correct) {
+      dispatch(addCorrectAnswer())
+    }
+    dispatch(updateCurrentQuestionIndex())
+  }
 
   return (
-    <>
-      <ProgressBar status={progressStatus}/>
-      <QuizContent/>
-    </>
+    <GameContainer>
+      <h1>{title}</h1>
+      <ul>
+        {variants.map((variant, index) => (
+          <QuestionItem key={variant} variant={variant} index={index} handleSelectAnswer={handleSelectAnswer}/>
+        ))}
+      </ul>
+    </GameContainer>
   )
 }
 

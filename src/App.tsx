@@ -8,12 +8,11 @@ import { QUESTIONS } from './constants'
 const App = (): ReactElement => {
   const currentQuestionIndex = useAppSelector((state) => state.quiz.currentQuestionIndex)
 
-  const isQuizCompleted = currentQuestionIndex === QUESTIONS.length
+  const hasNextQuestion = currentQuestionIndex < QUESTIONS.length
 
   return (
     <div className="App">
-      {!isQuizCompleted && <Game/>}
-      {isQuizCompleted && <Result/>}
+      {hasNextQuestion ? <Game/> : <Result />}
     </div>
   )
 }

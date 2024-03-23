@@ -1,6 +1,8 @@
-## [DEPLOY](https://react-quiz-eosin-one.vercel.app/)
+![Preview](https://github.com/diplomatgmg/react-quiz/blob/main/public/preview.jpg?raw=true)
 
-#### Мини викторина по знанию React
+# [DEPLOY](https://react-quiz-eosin-one.vercel.app/)
+
+## Мини викторина по знанию React
 
 ### Технологии:
 - React
@@ -9,3 +11,4 @@
 - Styled-components
 - SCSS
 
+ 
